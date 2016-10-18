@@ -1,8 +1,7 @@
 class Node():
-  __slots__=['_item','_next']
-  def __init__(self,item):
+  def __init__(self,item,next):
     self.item=item
-    self.next=None
+    self.next=next
   def getItem(self):
     return self.item
   def getNext(self):
