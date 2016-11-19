@@ -7,32 +7,54 @@ class Node(object):
     def getItem(self):
         return self.item
 
+    def setItem(self, newItem):
+        self.item = newItem
+
     def getNext(self):
         return self.next
+
+    def setNext(self, newnext):
+        self.next = newnext
 
     def getPrev(self):
         return self.prev
 
-    def setItem(self, newItem):
-        self.item = newItem
+    def setPrev(self, newprev):
+        self.prev = newprev
+
 
 class DoubleLinkedList:
     def __init__(self):
         self.head = None
         self.last = None
+        self.curr = None
+        self.prev = None
 
     def add(self, item):
-        self.head = Node(self.last, item, self.head)
-        self.last = item
+        # Set First Node
+        if not self.head:
+            self.head = Node(None, item, None)
+            self.prev = self.head
+            self.curr = self.head
+
+        # Set Current Node
+        else:
+            self.curr = Node(self.prev, item, None)
+            self.prev.setNext(self.curr)
+            self.prev = self.curr
+
+        # Get Last Node
+        self.last = self.curr
 
     def remove(self):
         if self.isEmpty():
             return None
         else:
-            item = self.head.item
-            self.head = self.head.next
-            self.last = self.head.prev
-            return item
+            self.curr = self.curr.prev
+            self.prev = self.curr.prev.getPrev()
+            self.curr.setNext(None)
+
+        self.last = self.curr
 
     def isEmpty(self):
         return self.head == None
