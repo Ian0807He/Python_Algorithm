@@ -24,5 +24,5 @@ class LinkedList:
             self.head = self.head.next
             return item
 
-    def is_empty(self):
+    def isEmpty(self):
         return self.head == None
