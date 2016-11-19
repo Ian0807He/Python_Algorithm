@@ -1,12 +1,12 @@
 import string
 
-def alphabet_and_numbers():
+def letters_and_numbers():
     while True:
-        for alp in string.ascii_lowercase:
+        for let in string.ascii_lowercase:
             for num in string.digits:
-                yield alp+num
+                yield let+num
 '''
 # Example
-for a in alphabet_and_numbers():
+for a in letters_and_numbers():
     print(a)
 '''
