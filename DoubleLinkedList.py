@@ -56,5 +56,22 @@ class DoubleLinkedList:
 
         self.last = self.curr
 
+
+    def foreward(self):
+        node = self.head
+        data = []
+        while node:
+            data.append(node.getItem())
+            node = node.next
+        return data
+
+    def backward(self):
+        node = self.last
+        data = []
+        while node:
+            data.append(node.getItem())
+            node = node.prev
+        return data
+
     def isEmpty(self):
         return self.head == None
