@@ -14,3 +14,6 @@ Algorithm practices
 ## Quick sort
 
 ## LinkList
+
+* Single Linked List (add, remove ,isEmpty)
+* Double Linked List (add, remove, isEmpty)
