@@ -1,6 +1,8 @@
 # Python_Algorithm
 Algorithm practices
 
+***Python3.4.1 & Python2.7.8***
+
 ## Binary Tree
 
 * preOrder
