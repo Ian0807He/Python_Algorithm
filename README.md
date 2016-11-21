@@ -3,6 +3,10 @@ Algorithm practices
 
 ***Python3.4.1 & Python2.7.8***
 
+## Queue
+
+A normal Queue funtion
+
 ## Binary Tree
 
 * preOrder
@@ -11,11 +15,27 @@ Algorithm practices
 * levelOrder
 * inverOrder
 
-## Queue
-
 ## Quick sort
 
-## LinkList
+Three line quick sort
 
-* Single Linked List (add, remove ,isEmpty)
-* Double Linked List (add, remove, isEmpty, foreward, backward)
+## Linked List
+
+* Single Linked List :
+  * add
+  * remove
+  * isEmpty
+* Double Linked List
+  * insertHead
+  * insert
+  * removeHead
+  * removeEnd
+  * search
+  * foreward
+  * backward
+  * isEmpty
+
+## Sorted Dictionary
+
+* SortedDict(dict) sort by key
+* SortedDict(dict,'value') sort by value
