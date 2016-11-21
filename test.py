@@ -31,6 +31,12 @@ print(list.foreward())
 # backward go through
 print(list.backward())
 
+# Search
+# Succeed
+print(list.search(3))
+# Failed
+print(list.search(5))
+
 # remove last item
 list.remove()
 e = list.last.getItem()
