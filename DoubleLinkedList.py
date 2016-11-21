@@ -29,6 +29,7 @@ class DoubleLinkedList(object):
         self.last = None
         self.curr = None
         self.prev = None
+        self.size = 0
 
     def add(self, item):
         # Set First Node
@@ -45,6 +46,7 @@ class DoubleLinkedList(object):
 
         # Get Last Node
         self.last = self.curr
+        self.size += 1
 
     def remove(self):
         if self.isEmpty():
@@ -55,6 +57,7 @@ class DoubleLinkedList(object):
             self.curr.setNext(None)
 
         self.last = self.curr
+        self.size -= 1
 
     def search(self, item):
         num = 1
@@ -87,6 +90,7 @@ class DoubleLinkedList(object):
             data.append(node.getItem())
             node = node.prev
         return data
+
 
     def isEmpty(self):
         return self.head == None

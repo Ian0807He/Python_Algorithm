@@ -37,6 +37,9 @@ print("Foreward go through: ", list.foreward())
 # backward go through
 print("Backward go through: ", list.backward())
 
+# size
+print("Size:", list.size)
+
 # Search
 # Succeed
 print("Search number 3 and print the positions")
@@ -64,3 +67,5 @@ print(f)
 print("Foreward go through: ", list.foreward())
 # backward go through
 print("Backward go through: ", list.backward())
+# size
+print("Size:", list.size)
