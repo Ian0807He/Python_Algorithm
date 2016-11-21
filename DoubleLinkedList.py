@@ -65,6 +65,8 @@ class DoubleLinkedList(object):
             return None
         elif not self.head.getNext():
             self.head = None
+        elif not self.curr.prev.getPrev():
+            self.head.setNext(None)
         else:
             self.curr = self.curr.prev
             self.prev = self.curr.prev.getPrev()
