@@ -23,7 +23,7 @@ class Node(object):
         self.prev = newprev
 
 
-class DoubleLinkedList:
+class DoubleLinkedList(object):
     def __init__(self):
         self.head = None
         self.last = None

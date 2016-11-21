@@ -1,3 +1,11 @@
+from Graph import *
+
+g = GraphNode(1,[2,3,4])
+print(g.getItem())
+print(g.getNextNodes())
+for x in g.getNextNodes():
+    print(x.getItem())
+
 from DoubleLinkedList import *
 
 list = DoubleLinkedList()
