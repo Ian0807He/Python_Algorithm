@@ -31,12 +31,12 @@ class DoubleLinkedList(object):
         self.prev = None
         self.size = 0
 
-    def addHead(self, item):
+    def insertHead(self, item):
         new = Node(None, item, self.head)
         self.head.setPrev(new)
         self.head = new
 
-    def add(self, item):
+    def insert(self, item):
         # Set First Node
         if not self.head:
             self.head = Node(None, item, None)

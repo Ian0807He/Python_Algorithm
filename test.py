@@ -3,15 +3,15 @@ from DoubleLinkedList import *
 print("DoubleLinkedList:\n")
 # Create A DoubleLinkedList
 list = DoubleLinkedList()
-list.add(1)
-list.add(2)
-list.add(3)
-list.add(4)
-list.add(2)
-list.add(3)
-list.add(4)
-list.add('a')
-list.add('b')
+list.insert(1)
+list.insert(2)
+list.insert(3)
+list.insert(4)
+list.insert(2)
+list.insert(3)
+list.insert(4)
+list.insert('a')
+list.insert('b')
 
 # Get First item
 a = list.head.getItem()
@@ -61,8 +61,8 @@ print("Backward go through: ", list.backward())
 # size
 print("Size:", list.size)
 
-print("Add An item to Head:")
-list.addHead('a')
+print("Insert An item to Head:")
+list.insertHead('a')
 # foreward go through
 print("Foreward go through: ", list.foreward())
 
