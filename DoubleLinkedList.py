@@ -54,18 +54,23 @@ class DoubleLinkedList(object):
     def removeHead(self):
         if self.isEmpty():
             return None
-        self.head = self.head.getNext()
-        self.head.setPrev(None)
+        elif not self.head.getNext():
+            self.head = None
+        else:
+            self.head = self.head.getNext()
+            self.head.setPrev(None)
 
     def removeEnd(self):
         if self.isEmpty():
             return None
+        elif not self.head.getNext():
+            self.head = None
         else:
             self.curr = self.curr.prev
             self.prev = self.curr.prev.getPrev()
             self.curr.setNext(None)
-        self.last = self.curr
-        self.size -= 1
+            self.last = self.curr
+            self.size -= 1
 
     def search(self, item):
         num = 1
