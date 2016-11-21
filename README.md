@@ -22,9 +22,11 @@ Three line quick sort
 ## Linked List
 
 * Single Linked List :
-  * add
-  * remove
+  * addEnd
+  * addHead
   * isEmpty
+  * printList
+  * search
 * Double Linked List
   * insertHead
   * insert
