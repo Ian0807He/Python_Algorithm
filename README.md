@@ -5,7 +5,7 @@ Algorithm practices
 
 ## Queue
 
-A normal Queue funtion
+A normal Queue function
 
 ## Binary Tree
 
