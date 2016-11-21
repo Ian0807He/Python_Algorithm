@@ -31,31 +31,39 @@ class DoubleLinkedList(object):
         self.prev = None
         self.size = 0
 
+    def addHead(self, item):
+        new = Node(None, item, self.head)
+        self.head.setPrev(new)
+        self.head = new
+
     def add(self, item):
         # Set First Node
         if not self.head:
             self.head = Node(None, item, None)
             self.prev = self.head
             self.curr = self.head
-
         # Set Current Node
         else:
             self.curr = Node(self.prev, item, None)
             self.prev.setNext(self.curr)
             self.prev = self.curr
-
         # Get Last Node
         self.last = self.curr
         self.size += 1
 
-    def remove(self):
+    def removeHead(self):
+        if self.isEmpty():
+            return None
+        self.head = self.head.getNext()
+        self.head.setPrev(None)
+
+    def removeEnd(self):
         if self.isEmpty():
             return None
         else:
             self.curr = self.curr.prev
             self.prev = self.curr.prev.getPrev()
             self.curr.setNext(None)
-
         self.last = self.curr
         self.size -= 1
 

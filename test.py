@@ -1,15 +1,6 @@
-from Graph import *
-
-print("Graph:")
-g = GraphNode(1,[2,3,4])
-print(g.getItem())
-print(g.getNextNodes())
-for x in g.getNextNodes():
-    print(x.getItem())
-
 from DoubleLinkedList import *
 
-print("\n\nDoubleLinkedList:")
+print("DoubleLinkedList:\n")
 # Create A DoubleLinkedList
 list = DoubleLinkedList()
 list.add(1)
@@ -52,13 +43,13 @@ for num in list.search(5):
 
 # remove last item
 print("Remove the last item, and print the last item")
-list.remove()
+list.removeEnd()
 e = list.last.getItem()
 print(e)
 
 # remove last item
 print("Remove the last item again, and print the last item")
-list.remove()
+list.removeEnd()
 f = list.last.getItem()
 print(f)
 
@@ -69,3 +60,13 @@ print("Foreward go through: ", list.foreward())
 print("Backward go through: ", list.backward())
 # size
 print("Size:", list.size)
+
+print("Add An item to Head:")
+list.addHead('a')
+# foreward go through
+print("Foreward go through: ", list.foreward())
+
+print("Remove an item from Head:")
+list.removeHead()
+# foreward go through
+print("Foreward go through: ", list.foreward())
