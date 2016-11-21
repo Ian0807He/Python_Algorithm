@@ -4,9 +4,9 @@ class Queue:
         self.size = size
         self.front = 0
         self.rear = 0
-    def is_empty(self):
+    def isEmpty(self):
         return self.rear == 0
-    def is_full(self):
+    def isFull(self):
         if (self.front - self.rear +1) == self.size:
             return True
         else:
@@ -89,9 +89,8 @@ class BinaryTree:
             else:
                 r = q.delete()
     def invertOrder(self, r):
-        if r.root.data is not None
+        if r is not None:
             print(r.root.data)
             r.root.left, r.root.right = r.root.right, r.root.left
             self.invertOrder(r.root.left)
             self.invertOrder(r.root.right)
-
