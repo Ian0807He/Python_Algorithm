@@ -57,14 +57,20 @@ class DoubleLinkedList(object):
         self.last = self.curr
 
     def search(self, item):
+        num = 1
+        find = False
         if self.head.getItem() is item:
-            return True
+            yield num
+            find = True
         curr = self.head
         while curr.getNext():
+            num += 1
             curr = curr.getNext()
             if curr.getItem() is item:
-                return True
-        return False
+                yield num
+                find = True
+        if not find:
+            yield False
 
     def foreward(self):
         node = self.head
