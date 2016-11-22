@@ -67,6 +67,9 @@ class DoubleLinkedList(object):
                 if curr.getNext():
                     curr.getNext().setPrev(last)
                 return
+        if self.last.getItem is item:
+            self.removeEnd()
+            return
         print("There is no such item in list")
 
 
