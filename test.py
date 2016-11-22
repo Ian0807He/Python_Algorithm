@@ -14,13 +14,13 @@ list.insertEnd('a')
 list.insertEnd('b')
 
 # Get First item
-a = list.head.getItem()
+a = list.head.Item
 # Get Second item
-b = list.head.getNext().getItem()
+b = list.head.Next.Item
 # Get Last item
-c = list.last.getItem()
+c = list.last.Item
 # Get the item before the last item
-d = list.last.getPrev().getItem()
+d = list.last.Prev.Item
 print(a, b, c, d)
 
 # foreward go through
@@ -46,13 +46,13 @@ for num in list.search(5):
 # remove last item
 print("Remove the last item, and print the last item")
 list.removeEnd()
-e = list.last.getItem()
+e = list.last.Item
 print(e)
 
 # remove last item
 print("Remove the last item again, and print the last item")
 list.removeEnd()
-f = list.last.getItem()
+f = list.last.Item
 print(f)
 
 
