@@ -29,13 +29,16 @@ Three line quick sort
   * search
 * Double Linked List
   * insertHead
-  * insert
+  * insertEnd
+  * remove
   * removeHead
   * removeEnd
   * search
-  * foreward
-  * backward
+  * foreward (Go through from first to last)
+  * backward (GO through from last to first)
   * isEmpty
+  
+  support len(DoubleLinkedList())
 
 ## Sorted Dictionary
 
