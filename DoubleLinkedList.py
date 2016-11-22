@@ -36,7 +36,7 @@ class DoubleLinkedList(object):
         self.head.setPrev(new)
         self.head = new
 
-    def insert(self, item):
+    def insertEnd(self, item):
         # Set First Node
         if not self.head:
             self.head = Node(None, item, None)
@@ -50,6 +50,25 @@ class DoubleLinkedList(object):
         # Get Last Node
         self.last = self.curr
         self.size += 1
+
+    def remove(self, item):
+        if not self.head:
+            print("There is no item in list")
+            return
+        curr = self.head
+        if curr.getItem() is item:
+            self.removeHead()
+            return
+        while curr.getNext():
+            last = curr
+            curr = curr.getNext()
+            if curr.getItem() is item:
+                last.setNext(curr.getNext())
+                if curr.getNext():
+                    curr.getNext().setPrev(last)
+                return
+        print("There is no such item in list")
+
 
     def removeHead(self):
         if self.isEmpty():
