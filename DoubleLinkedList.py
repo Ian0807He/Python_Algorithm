@@ -52,10 +52,12 @@ class DoubleLinkedList(object):
         self.size += 1
 
     def remove(self, item):
+        # If there is no item in the list, return nothing
         if not self.head:
             print("There is no item in list")
             return
         curr = self.head
+        # if it is the first item
         if curr.getItem() is item:
             self.removeHead()
             return
@@ -67,13 +69,16 @@ class DoubleLinkedList(object):
                 if curr.getNext():
                     curr.getNext().setPrev(last)
                 return
+        # if it is the last item
         if self.last.getItem is item:
             self.removeEnd()
             return
+        # if there is no such item
         print("There is no such item in list")
 
 
     def removeHead(self):
+        # if it is an empty list, return
         if self.isEmpty():
             return None
         elif not self.head.getNext():
@@ -83,6 +88,7 @@ class DoubleLinkedList(object):
             self.head.setPrev(None)
 
     def removeEnd(self):
+        # if it is an empty list, return
         if self.isEmpty():
             return None
         elif not self.head.getNext():
@@ -97,6 +103,7 @@ class DoubleLinkedList(object):
             self.size -= 1
 
     def search(self, item):
+        # generator, and it will find all item and print where they are
         num = 1
         find = False
         if self.head.getItem() is item:
@@ -113,6 +120,7 @@ class DoubleLinkedList(object):
             yield False
 
     def foreward(self):
+        # walk through from first to last
         node = self.head
         data = []
         while node:
@@ -121,6 +129,7 @@ class DoubleLinkedList(object):
         return data
 
     def backward(self):
+        # walk through from last to first
         node = self.last
         data = []
         while node:
