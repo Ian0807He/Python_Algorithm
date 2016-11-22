@@ -31,6 +31,9 @@ class DoubleLinkedList(object):
         self.prev = None
         self.size = 0
 
+    def __len__(self):
+        return self.size
+
     def insertHead(self, item):
         new = Node(None, item, self.head)
         self.head.setPrev(new)
