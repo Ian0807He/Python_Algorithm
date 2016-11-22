@@ -5,22 +5,28 @@ class Node(object):
         self.next = next
         self.item = item
 
-    def getItem(self):
+    @property
+    def Item(self):
         return self.item
 
-    def setItem(self, newItem):
+    @Item.setter
+    def Item(self, newItem):
         self.item = newItem
 
-    def getNext(self):
+    @property
+    def Next(self):
         return self.next
 
-    def setNext(self, newnext):
+    @Next.setter
+    def Next(self, newnext):
         self.next = newnext
 
-    def getPrev(self):
+    @property
+    def Prev(self):
         return self.prev
 
-    def setPrev(self, newprev):
+    @Prev.setter
+    def Prev(self, newprev):
         self.prev = newprev
 
 
@@ -37,7 +43,7 @@ class DoubleLinkedList(object):
 
     def insertHead(self, item):
         new = Node(None, item, self.head)
-        self.head.setPrev(new)
+        self.head.Prev = new
         self.head = new
 
     def insertEnd(self, item):
@@ -49,7 +55,7 @@ class DoubleLinkedList(object):
         # Set Current Node
         else:
             self.curr = Node(self.prev, item, None)
-            self.prev.setNext(self.curr)
+            self.prev.Next = self.curr
             self.prev = self.curr
         # Get Last Node
         self.last = self.curr
@@ -62,16 +68,16 @@ class DoubleLinkedList(object):
             return
         curr = self.head
         # if it is the first item
-        if curr.getItem() is item:
+        if curr.Item is item:
             self.removeHead()
             return
-        while curr.getNext():
+        while curr.Next:
             last = curr
-            curr = curr.getNext()
-            if curr.getItem() is item:
-                last.setNext(curr.getNext())
-                if curr.getNext():
-                    curr.getNext().setPrev(last)
+            curr = curr.Next
+            if curr.Item is item:
+                last.Next = curr.Next
+                if curr.Next:
+                    curr.Next.Prev = last
                 return
         # if it is the last item
         if self.last.getItem is item:
@@ -85,24 +91,24 @@ class DoubleLinkedList(object):
         # if it is an empty list, return
         if self.isEmpty():
             return None
-        elif not self.head.getNext():
+        elif not self.head.Next:
             self.head = None
         else:
-            self.head = self.head.getNext()
-            self.head.setPrev(None)
+            self.head = self.head.Next
+            self.head.Prev = None
 
     def removeEnd(self):
         # if it is an empty list, return
         if self.isEmpty():
             return None
-        elif not self.head.getNext():
+        elif not self.head.Next:
             self.head = None
-        elif not self.curr.prev.getPrev():
-            self.head.setNext(None)
+        elif not self.curr.prev.Prev:
+            self.head.Next = None
         else:
             self.curr = self.curr.prev
-            self.prev = self.curr.prev.getPrev()
-            self.curr.setNext(None)
+            self.prev = self.curr.prev.Prev
+            self.curr.Next = None
             self.last = self.curr
             self.size -= 1
 
@@ -110,14 +116,14 @@ class DoubleLinkedList(object):
         # generator, and it will find all item and print where they are
         num = 1
         find = False
-        if self.head.getItem() is item:
+        if self.head.Item is item:
             yield num
             find = True
         curr = self.head
-        while curr.getNext():
+        while curr.Next:
             num += 1
-            curr = curr.getNext()
-            if curr.getItem() is item:
+            curr = curr.Next
+            if curr.Item is item:
                 yield num
                 find = True
         if not find:
@@ -128,7 +134,7 @@ class DoubleLinkedList(object):
         node = self.head
         data = []
         while node:
-            data.append(node.getItem())
+            data.append(node.Item)
             node = node.next
         return data
 
@@ -137,7 +143,7 @@ class DoubleLinkedList(object):
         node = self.last
         data = []
         while node:
-            data.append(node.getItem())
+            data.append(node.Item)
             node = node.prev
         return data
 
