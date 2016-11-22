@@ -30,6 +30,8 @@ print("Backward go through: ", list.backward())
 
 # size
 print("Size:", list.size)
+# another method to get the size of this list
+print("Another method to get the size of this list:", len(list))
 
 # Search
 # Succeed
