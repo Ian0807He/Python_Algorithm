@@ -3,15 +3,15 @@ from DoubleLinkedList import *
 print("DoubleLinkedList:\n")
 # Create A DoubleLinkedList
 list = DoubleLinkedList()
-list.insert(1)
-list.insert(2)
-list.insert(3)
-list.insert(4)
-list.insert(2)
-list.insert(3)
-list.insert(4)
-list.insert('a')
-list.insert('b')
+list.insertEnd(1)
+list.insertEnd(2)
+list.insertEnd(3)
+list.insertEnd(4)
+list.insertEnd(2)
+list.insertEnd(3)
+list.insertEnd(4)
+list.insertEnd('a')
+list.insertEnd('b')
 
 # Get First item
 a = list.head.getItem()
@@ -71,11 +71,17 @@ list.removeHead()
 # foreward go through
 print("Foreward go through: ", list.foreward())
 
+print("Remove 3:")
+list.remove(3)
+print("Foreward go through: ", list.foreward())
+
+print("Remove 3 again:")
+list.remove(3)
+print("Foreward go through: ", list.foreward())
+
 
 # remove all items
 print("Remove all items:")
-list.removeEnd()
-list.removeEnd()
 list.removeEnd()
 list.removeEnd()
 list.removeEnd()
