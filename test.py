@@ -9,7 +9,7 @@ list.insertEnd(3)
 list.insertEnd(4)
 list.insertEnd(2)
 list.insertEnd(3)
-list.insertEnd(4)
+list.insertEnd('c')
 list.insertEnd('a')
 list.insertEnd('b')
 
@@ -80,9 +80,13 @@ list.remove(3)
 print("Foreward go through: ", list.foreward())
 
 
+print("Remove c again:")
+list.remove('c')
+print("Foreward go through: ", list.foreward())
+
+
 # remove all items
 print("Remove all items:")
-list.removeEnd()
 list.removeEnd()
 list.removeEnd()
 list.removeEnd()
