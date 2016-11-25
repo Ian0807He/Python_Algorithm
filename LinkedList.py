@@ -1,19 +1,24 @@
 class Node(object):
-    def __init__(self,item,next):
-        self.item=item
-        self.next=next
+    __slots__ = ('it', 'ne')
+    def __init__(self,it,ne):
+        self.it=it
+        self.ne=ne
 
-    def getItem(self):
-        return self.item
+    @property
+    def item(self):
+        return self.it
 
-    def getNext(self):
-        return self.next
+    @item.setter
+    def item(self,newitem):
+        self.it=newitem
 
-    def setNext(self, newitem):
-        self.next = newitem
+    @property
+    def next(self):
+        return self.ne
 
-    def setItem(self,newitem):
-        self.item=newitem
+    @next.setter
+    def next(self, newitem):
+        self.ne = newitem
 
 class LinkedList(object):
     def __init__(self):
@@ -21,19 +26,19 @@ class LinkedList(object):
         self.curr = None
         self.last = None
 
-    def addEnd(self, item):
-        self.curr = Node(item, None)
+    def addEnd(self, it):
+        self.curr = Node(it, None)
         if self.head is None:
             self.head = self.curr
         else:
-            self.last.setNext(self.curr)
+            self.last.next = self.curr
         self.last = self.curr
 
-    def addHead(self, item):
+    def addHead(self, it):
         if self.head:
-            self.head = Node(item, self.head)
+            self.head = Node(it, self.head)
         else:
-            self.head = Node(item, None)
+            self.head = Node(it, None)
 
     def isEmpty(self):
         return self.head == None
@@ -43,27 +48,45 @@ class LinkedList(object):
         if self.isEmpty():
             return False
         curr = self.head
-        data.append(curr.getItem())
-        while curr.getNext():
-            curr = curr.getNext()
-            data.append(curr.getItem())
+        data.append(curr.item)
+        while curr.next:
+            curr = curr.next
+            data.append(curr.item)
         return data
 
-    def search(self, item):
+    def remove(self, it):
+        if self.isEmpty():
+            return False
+        else:
+            curr = self.head
+            if curr.it is it:
+                self.head = curr.next
+            while curr.next:
+                last = curr
+                curr = curr.next
+                if curr.it is it:
+                    last.next = curr.next
+                    return
+            if curr.item is it:
+                last.next = None
+            else:
+                return False
+
+    def search(self, it):
         if self.isEmpty():
             yield False
         else:
             curr = self.head
             find = False
             num = 1
-            if curr.getItem() is item:
+            if curr.item is it:
                 yield num
                 num += 1
                 find = True
-            while curr.getNext():
-                curr = curr.getNext()
+            while curr.next:
+                curr = curr.next
                 num += 1
-                if curr.getItem() is item:
+                if curr.item is it:
                     yield num
                     find = True
             if not find:

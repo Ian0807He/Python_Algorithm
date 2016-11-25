@@ -14,3 +14,6 @@ print(list.printList())
 
 for i in list.search(3):
     print(i)
+
+list.remove(3)
+print(list.printList())
