@@ -1,33 +1,33 @@
 class Node(object):
-    __slots__ = ('prev', 'next', 'item')
-    def __init__(self, prev, item, next):
-        self.prev = prev
-        self.next = next
-        self.item = item
+    __slots__ = ('pr', 'ne', 'it')
+    def __init__(self, pr, it, ne):
+        self.pr = pr
+        self.ne = ne
+        self.it = it
 
     @property
-    def Item(self):
-        return self.item
+    def item(self):
+        return self.it
 
-    @Item.setter
-    def Item(self, newItem):
-        self.item = newItem
-
-    @property
-    def Next(self):
-        return self.next
-
-    @Next.setter
-    def Next(self, newnext):
-        self.next = newnext
+    @item.setter
+    def item(self, newItem):
+        self.it = newItem
 
     @property
-    def Prev(self):
-        return self.prev
+    def next(self):
+        return self.ne
 
-    @Prev.setter
-    def Prev(self, newprev):
-        self.prev = newprev
+    @next.setter
+    def next(self, newnext):
+        self.ne = newnext
+
+    @property
+    def prev(self):
+        return self.pr
+
+    @prev.setter
+    def prev(self, newprev):
+        self.pr = newprev
 
 
 class DoubleLinkedList(object):
@@ -35,95 +35,95 @@ class DoubleLinkedList(object):
         self.head = None
         self.last = None
         self.curr = None
-        self.prev = None
+        self.pr = None
         self.size = 0
 
     def __len__(self):
         return self.size
 
-    def insertHead(self, item):
-        new = Node(None, item, self.head)
-        self.head.Prev = new
+    def insertHead(self, it):
+        new = Node(None, it, self.head)
+        self.head.prev = new
         self.head = new
 
-    def insertEnd(self, item):
+    def insertEnd(self, it):
         # Set First Node
         if not self.head:
-            self.head = Node(None, item, None)
-            self.prev = self.head
+            self.head = Node(None, it, None)
+            self.pr = self.head
             self.curr = self.head
         # Set Current Node
         else:
-            self.curr = Node(self.prev, item, None)
-            self.prev.Next = self.curr
-            self.prev = self.curr
+            self.curr = Node(self.pr, it, None)
+            self.pr.next = self.curr
+            self.pr = self.curr
         # Get Last Node
         self.last = self.curr
         self.size += 1
 
-    def remove(self, item):
-        # If there is no item in the list, return nothing
+    def remove(self, it):
+        # If there is no it in the list, return nothing
         if not self.head:
-            print("There is no item in list")
+            print("There is no it in list")
             return
         curr = self.head
-        # if it is the first item
-        if curr.Item is item:
+        # if it is the first it
+        if curr.item is it:
             self.removeHead()
             return
-        while curr.Next:
+        while curr.next:
             last = curr
-            curr = curr.Next
-            if curr.Item is item:
-                last.Next = curr.Next
-                if curr.Next:
-                    curr.Next.Prev = last
+            curr = curr.next
+            if curr.item is it:
+                last.next = curr.next
+                if curr.next:
+                    curr.next.prev = last
                 return
-        # if it is the last item
-        if self.last.getItem is item:
+        # if it is the last it
+        if self.last.getItem is it:
             self.removeEnd()
             return
-        # if there is no such item
-        print("There is no such item in list")
+        # if there is no such it
+        print("There is no such it in list")
 
 
     def removeHead(self):
         # if it is an empty list, return
         if self.isEmpty():
             return None
-        elif not self.head.Next:
+        elif not self.head.next:
             self.head = None
         else:
-            self.head = self.head.Next
-            self.head.Prev = None
+            self.head = self.head.next
+            self.head.prev = None
 
     def removeEnd(self):
         # if it is an empty list, return
         if self.isEmpty():
             return None
-        elif not self.head.Next:
+        elif not self.head.next:
             self.head = None
-        elif not self.curr.prev.Prev:
-            self.head.Next = None
+        elif not self.curr.pr.prev:
+            self.head.next = None
         else:
-            self.curr = self.curr.prev
-            self.prev = self.curr.prev.Prev
-            self.curr.Next = None
+            self.curr = self.curr.pr
+            self.pr = self.curr.pr.prev
+            self.curr.next = None
             self.last = self.curr
             self.size -= 1
 
-    def search(self, item):
-        # generator, and it will find all item and print where they are
+    def search(self, it):
+        # generator, and it will find all it and print where they are
         num = 1
         find = False
-        if self.head.Item is item:
+        if self.head.item is it:
             yield num
             find = True
         curr = self.head
-        while curr.Next:
+        while curr.next:
             num += 1
-            curr = curr.Next
-            if curr.Item is item:
+            curr = curr.next
+            if curr.item is it:
                 yield num
                 find = True
         if not find:
@@ -134,8 +134,8 @@ class DoubleLinkedList(object):
         node = self.head
         data = []
         while node:
-            data.append(node.Item)
-            node = node.next
+            data.append(node.item)
+            node = node.ne
         return data
 
     def backward(self):
@@ -143,8 +143,8 @@ class DoubleLinkedList(object):
         node = self.last
         data = []
         while node:
-            data.append(node.Item)
-            node = node.prev
+            data.append(node.item)
+            node = node.pr
         return data
 
 
