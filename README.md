@@ -26,7 +26,9 @@ Three line quick sort
   * addHead
   * isEmpty
   * printList
+  * remove
   * search
+
 * Double Linked List
   * insertHead
   * insertEnd
